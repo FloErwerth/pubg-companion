@@ -4,7 +4,6 @@ import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
 import { useAllSeasonsQuery } from '~/api/seasons';
 import { ActivityIndicator } from 'react-native';
 
-const seasons = ['33', '32', '31', '30'] as const;
 const flatListContainerStyle = { gap: 8 } as const;
 
 type SeasonsSelectSheetContentProps = {

@@ -1,16 +1,7 @@
 import { Redirect, Tabs } from 'expo-router';
-import React, { ComponentProps } from 'react';
+import React from 'react';
 import { useIsRegisteredPlayer } from '~/store/player';
-import {
-  BarChart2,
-  CircleUserRound,
-  GanttChart,
-  LineChart,
-  LucideBarChart,
-  LucideBarChartBig,
-} from 'lucide-react-native';
-import { View } from 'react-native';
-import { Text } from '~/components/Text/Text';
+import { CircleUserRound, LucideBarChart } from 'lucide-react-native';
 import { colors } from '~/theme';
 
 const screenOptions = {

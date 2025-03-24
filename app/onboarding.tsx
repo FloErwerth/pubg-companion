@@ -2,9 +2,8 @@ import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { Fragment, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ActivityIndicator, TextInput, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { playerApi } from '~/api/player';
 import { Button } from '~/components/Button';
 import { useAuthenticationStore } from '~/store/player';
@@ -15,7 +14,6 @@ import { Input } from '~/components/Input/Input';
 const imageStyle = { width: '100%', height: 340 } as const;
 
 export default function Onboarding() {
-  const { top } = useSafeAreaInsets();
   const { t } = useTranslation('translation', { keyPrefix: 'onboarding' });
   const [name, setName] = useState('');
   const { id, setId, steamName, setSteamName } = useAuthenticationStore();
