@@ -17,21 +17,23 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      },
+      "package": "com.florian_erwerth.pubgcompanion"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-font",
+        {
+          "fonts": ["./assets/fonts/SpaceGrotesk-Bold.ttf", "./assets/fonts/SpaceGrotesk-Light.ttf", "./assets/fonts/SpaceGrotesk-Medium.ttf", "./assets/fonts/SpaceGrotesk-Regular.ttf", "./assets/fonts/SpaceGrotesk-SemiBold.ttf"]
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

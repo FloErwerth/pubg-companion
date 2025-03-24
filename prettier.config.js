@@ -3,5 +3,6 @@ module.exports = {
   tabWidth: 2,
   singleQuote: true,
   bracketSameLine: true,
+  indentWidth: 2,
   trailingComma: 'es5',
 };
