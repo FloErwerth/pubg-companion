@@ -1,20 +1,19 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import { de } from "./de";
+import i18next from "i18next";
+import de from "~/translation/de.json";
+import {initReactI18next} from "react-i18next";
 
 export const defaultNS = "translation";
-export const resources = { de } as const;
+export const resources = {
+    de: {
+        translation: de,
+    },
+};
 
-i18n
-  .use(initReactI18next)
-  .init({
-    defaultNS,
+// to use regional locales use { "en-US": enUS } etc
+i18next.use(initReactI18next).init({
     lng: "de",
+    defaultNS,
     resources,
     keySeparator: ".",
-    interpolation: {
-      escapeValue: false // not needed for react as it escapes by default
-    }
-  });
-
-export default i18n;
+    compatibilityJSON: "v4",
+});
