@@ -12,5 +12,6 @@ export const request = (endpoint: `/${string}`) => {
       Accept: 'application/vnd.api+json',
       Authorization: `Bearer ${apiKey}`,
     },
+    keepalive: false
   });
 };

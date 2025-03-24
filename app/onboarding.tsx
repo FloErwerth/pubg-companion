@@ -5,13 +5,14 @@ import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { playerApi } from '~/api/player';
-import { Button } from '~/components/Button';
+import {Button, PrimaryButton} from '~/components/Button';
 import { useAuthenticationStore } from '~/store/player';
 import { Text } from '~/components/Text/Text';
 import { Pencil } from 'lucide-react-native';
 import { Input } from '~/components/Input/Input';
+import {colors} from "~/theme";
 
-const imageStyle = { width: '100%', height: 340 } as const;
+const imageStyle = { width: '100%', height: 250 } as const;
 
 export default function Onboarding() {
   const { t } = useTranslation('translation', { keyPrefix: 'onboarding' });
@@ -45,27 +46,27 @@ export default function Onboarding() {
   };
 
   return (
-    <Fragment>
+    <View style={{ backgroundColor: colors.background, flex: 1 }}>
       <KeyboardAwareScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <Image
           source={require('assets/images/pubg.png')}
-          contentFit="contain"
           contentPosition="center"
           style={imageStyle}
         />
-        <View className="gap-[4px] flex-1 p-2">
-          <View className="gap-[4px]">
-            <Text>{t('title')}</Text>
-            <Text className="text-[18px] text-center">{t('explaination')}</Text>
+        <View style={{ padding: 16,
+          backgroundColor: colors.background, flex: 1 }}>
+          <View style={{gap: 8}}>
+            <Text style={{ fontSize: 22, fontFamily: "Space-Grotesk-Bold"}}>{t('title')}</Text>
+            <Text style={{fontSize: 16, marginBottom: 8}}>{t('explaination')}</Text>
             {!id && (
               <Input placeholder="PUBG Username" onChangeText={handleUsernameInput} value={name} />
             )}
             {id && (
-              <View className="rounded-full p-1">
-                <View className="flex-row items-center justify-between">
+              <View style={{ borderRadius: 8, padding: 8, backgroundColor: colors.grey6}}>
+                <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between"}} className="flex-row items-center justify-between">
                   <View>
                     <Text>{t('yourName')}</Text>
-                    <Text>{steamName}</Text>
+                    <Text style={{fontSize: 18}}>{steamName}</Text>
                   </View>
                   <Button
                     onPress={() => {
@@ -73,22 +74,22 @@ export default function Onboarding() {
                       setId('');
                       setSteamName('');
                     }}>
-                    <Pencil color="$color.black" size="$0.75" />
+                    <Pencil color={colors.white} size="20" />
                   </Button>
                 </View>
               </View>
             )}
-            {showNotFoundError && <Text>{t('onboarding.notFound')}</Text>}
+            {showNotFoundError && <Text>{t('notFound')}</Text>}
           </View>
         </View>
-        <Button
-          style={{ margin: 8 }}
+        <PrimaryButton
+          style={{ margin: 8, justifyContent: "center"}}
           disabled={(!id && !name) || isLoading}
           onPress={!id ? handlePress : () => router.replace('/')}>
-          <Text>{t(id ? 'connect' : 'search')}</Text>
-          {isLoading && <ActivityIndicator size="large" />}
-        </Button>
+          <Text style={{fontSize: 18}}>{t(id ? 'connect' : 'search')}</Text>
+          {isLoading && <ActivityIndicator size="small" />}
+        </PrimaryButton>
       </KeyboardAwareScrollView>
-    </Fragment>
+    </View>
   );
 }
