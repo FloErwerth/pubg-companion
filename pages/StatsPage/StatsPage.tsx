@@ -1,19 +1,19 @@
-import {TouchableWithoutFeedback, View} from 'react-native';
-import { PageHeader } from '~/elements/PageHeader';
-import { Card } from '~/components/Card';
-import { Text } from '~/components/Text';
-import { ScreenView } from '~/components/ScreenView';
-import { styles } from '~/pages/StatsPage/styles';
-import { useTranslation } from 'react-i18next';
-import React, { useMemo } from 'react';
-import { Button, SecondaryButton } from '~/components/Button';
 import { Pen } from 'lucide-react-native';
-import { colors } from '~/theme';
-import { useBottomSheetControls } from '~/components/BottomSheet/useBottomSheet';
-import { useStatsStore } from '~/store/stats';
-import { SeasonsSelectSheetContent } from '~/pages/StatsPage/SeasonsSelect';
-import { BottomSheet } from '~/components/BottomSheet/BottomSheet';
+import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Pressable, View } from 'react-native';
 import { playerApi } from '~/api/player';
+import { BottomSheet } from '~/components/BottomSheet/BottomSheet';
+import { useBottomSheetControls } from '~/components/BottomSheet/useBottomSheet';
+import { Button } from '~/components/Button';
+import { Card } from '~/components/Card';
+import { ScreenView } from '~/components/ScreenView';
+import { Text } from '~/components/Text';
+import { PageHeader } from '~/elements/PageHeader';
+import { SeasonsSelectSheetContent } from '~/pages/StatsPage/SeasonsSelect';
+import { styles } from '~/pages/StatsPage/styles';
+import { useStatsStore } from '~/store/stats';
+import { colors } from '~/theme';
 
 export const StatsPage = () => {
   const { t } = useTranslation();
@@ -30,7 +30,7 @@ export const StatsPage = () => {
       return t('stats.currentSeason');
     }
     return name;
-  }, [name, isCurrentSeason]);
+  }, [t, name, isCurrentSeason]);
 
   return (
     <>
@@ -38,15 +38,15 @@ export const StatsPage = () => {
         <View style={styles.wrapper}>
           <PageHeader />
           <View style={styles.innerWrapper}>
-            <TouchableWithoutFeedback onPress={openSheet}>
+            <Pressable onPress={openSheet}>
               <Card style={styles.seasonWrapper}>
                 <View>
                   <Text>{t('stats.chosenSeason')}</Text>
-                  <Text style={{fontSize: 22}}>{seasonButtonText}</Text>
+                  <Text style={{ fontSize: 22 }}>{seasonButtonText}</Text>
                 </View>
                 <Pen color={colors.white} size="18" />
               </Card>
-            </TouchableWithoutFeedback>
+            </Pressable>
 
             <View style={styles.cardWrapper}>
               <Card style={styles.card}>

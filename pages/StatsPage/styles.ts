@@ -8,8 +8,8 @@ export const styles = StyleSheet.create({
     gap: 16,
   },
   seasonWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
   },
   seasonButton: {
