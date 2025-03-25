@@ -2,11 +2,14 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   wrapper: {
-    gap: 32,
+    gap: 8,
+  },
+  innerWrapper: {
+    gap: 16,
   },
   seasonWrapper: {
-    paddingBottom: 8,
-    flexDirection: 'row',
+    flexDirection: "row",
+    alignItems: "center",
     justifyContent: 'space-between',
   },
   seasonButton: {

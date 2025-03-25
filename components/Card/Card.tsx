@@ -4,7 +4,7 @@ import { styles } from '~/components/Card/styles';
 
 export const Card = ({ children, ...props }: PropsWithChildren & ViewProps) => {
   return (
-    <View {...props} style={[props.style, styles.wrapper]}>
+    <View {...props} style={[styles.wrapper, props.style]}>
       {children}
     </View>
   );

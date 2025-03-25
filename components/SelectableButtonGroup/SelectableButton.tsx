@@ -1,16 +1,25 @@
-import { Button } from '~/components/Button';
 import { useCallback, useMemo } from 'react';
+import { View } from 'react-native';
+import { Button } from '~/components/Button';
+import { styles } from '~/components/SelectableButtonGroup/styles';
 import { Text } from '~/components/Text';
 import { colors } from '~/theme';
-import { styles } from '~/components/SelectableButtonGroup/styles';
 
 type SelectableButtonProps<T extends string> = {
+  width?: number;
   value: T;
   onPress: (value: T) => void;
   isSelected?: boolean;
+  disabled?: boolean;
 };
 
-export const SelectableButton = <T extends string>({ isSelected = false, value, onPress }: SelectableButtonProps<T>) => {
+export const SelectableButton = <T extends string>({
+  isSelected = false,
+  value,
+  onPress,
+  width,
+  disabled,
+}: SelectableButtonProps<T>) => {
   const handleSelection = useCallback(() => {
     if (isSelected) {
       return;
@@ -19,18 +28,27 @@ export const SelectableButton = <T extends string>({ isSelected = false, value, 
   }, [isSelected, onPress, value]);
 
   const buttonTextStyle = useMemo(
-    () => ({ color: isSelected ? colors.primary : colors.foreground }),
-    [isSelected]
+    () => ({
+      color: disabled ? colors.grey2 : isSelected ? colors.primary : colors.foreground,
+    }),
+    [disabled, isSelected]
   );
 
   const buttonStyle = useMemo(
-    () => [styles.button, { backgroundColor: isSelected ? colors.white : colors.grey4 }],
-    [isSelected]
+    () => [
+      styles.button,
+      {
+        backgroundColor: disabled ? colors.black : isSelected ? colors.white : colors.grey4,
+      },
+    ],
+    [disabled, isSelected]
   );
 
   return (
-    <Button style={buttonStyle} onPress={handleSelection}>
-      <Text style={buttonTextStyle}>{value}</Text>
-    </Button>
+    <View style={{ width }}>
+      <Button disabled={disabled} style={buttonStyle} onPress={handleSelection}>
+        <Text style={buttonTextStyle}>{value}</Text>
+      </Button>
+    </View>
   );
 };

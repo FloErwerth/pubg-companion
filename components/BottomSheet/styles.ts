@@ -6,8 +6,11 @@ export const styles = StyleSheet.create({
     padding: 16,
   },
   title: {
-    fontSize: 22,
+    fontSize: 18,
     textAlign: 'center',
+  },
+  close: {
+    fontSize: 16,
   },
   background: {
     backgroundColor: colors.grey5,

@@ -1,28 +1,29 @@
 {
-  "common": {
-    "continue": "Weiter",
-    "back": "Zurück"
-  },
-  "onboarding": {
-    "settings": {
-      "title": "Willkommen bei deinem PUBG Companion!",
-      "explaination": "Damit wir deine Stats aufrufen können benötigen wir ein paar Informationen von Dir.",
-      "privacy": "Deine Informationen werden nur auf deinem Smartphone gespeichert und sind damit sicher."
-    },
-    "title": "Deinen Companion mit PUBG verbinden",
-    "explaination": "Als letztes benötigt der Companion noch den Usernamen, welchen Du in <strong>PUBG</strong> verwendest.",
-    "companionReady": "Dein PUBG Companion ist nun bereit. Du kannst nun auf <strong>Einrichtung abschließen</strong> drücken, um die Einrichtung zu beenden.",
-    "changeLater": "Und keine Sorge! Du kannst alle angegebenen Informationen später jederzeit in deinen Einstellungen verändern.",
-    "search": "Nach Usernamen suchen",
-    "connect": "Einrichtung abschließen",
-    "placeholder": "PUBG Username",
-    "yourName": "Dein ausgewählter Username:",
-    "notFound": "Leider wurde dein eingegebener Name nicht gefunden.",
-    "found": "Dein Username wurde gefunden!"
-  },
-  "stats": {
-    "kd": "K/D Rate",
-    "avgDmg": "Durchs. Schaden",
-    "currentSeason": "Aktuelle Seasion"
-  }
+	"common": {
+		"continue": "Weiter",
+		"back": "Zurück"
+	},
+	"onboarding": {
+		"settings": {
+			"title": "Willkommen bei deinem PUBG Companion!",
+			"explaination": "Damit wir deine Stats aufrufen können benötigen wir ein paar Informationen von Dir.",
+			"privacy": "Deine Informationen werden nur auf deinem Smartphone gespeichert und sind damit sicher."
+		},
+		"title": "Deinen Companion mit PUBG verbinden",
+		"explaination": "Als letztes benötigt der Companion noch den Usernamen, welchen Du in <strong>PUBG</strong> verwendest.",
+		"companionReady": "Dein PUBG Companion ist nun bereit. Wir haben alle nötigen Angaben von Dir erhalten.",
+		"changeLater": "Drücke auf \"Einrichtung abschließen\", um deine Angaben zu bestätigen. \n\nUnd keine Sorge! Du kannst alle Angaben später jederzeit in deinen Einstellungen verändern.",
+		"search": "Nach Usernamen suchen",
+		"connect": "Einrichtung abschließen",
+		"placeholder": "PUBG Username",
+		"yourName": "Dein ausgewählter Username:",
+		"notFound": "Leider wurde dein eingegebener Name nicht gefunden.",
+		"found": "Dein Username wurde gefunden!"
+	},
+	"stats": {
+		"kd": "K/D Rate",
+		"avgDmg": "Durchs. Schaden",
+		"currentSeason": "Aktuelle Season",
+		"chosenSeason": "Angezeigte Season"
+	}
 }

@@ -8,7 +8,7 @@ import { seasonMapper } from '~/api/seasons/mapper';
 const seasonsURL = '/seasons';
 
 export const useAllSeasonsQuery = () => {
-  const { id } = usePlayerStore();
+  const { id, platform } = usePlayerStore();
 
   return useQuery({
     enabled: !!id,
@@ -18,7 +18,10 @@ export const useAllSeasonsQuery = () => {
       if (response.ok) {
         const seasonJson = await response.json();
         const parsedSeasons = allSeasonsSchema.parse(seasonJson);
-        return seasonMapper.toFrontend(parsedSeasons);
+        const frontendSeasons =  seasonMapper.toFrontend(parsedSeasons);
+        const filteredFrontendSeasons = frontendSeasons.filter(({ id }) => id.includes(platform.toLowerCase()));
+        filteredFrontendSeasons.unshift({ id: "lifetime", name: "Lifetime", isCurrentSeason: false });
+        return filteredFrontendSeasons;
       }
     },
     queryKey: [SEASONS_QUERY_KEY],

@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import {TouchableWithoutFeedback, View} from 'react-native';
 import { PageHeader } from '~/elements/PageHeader';
 import { Card } from '~/components/Card';
 import { Text } from '~/components/Text';
@@ -29,21 +29,25 @@ export const StatsPage = () => {
     if (isCurrentSeason) {
       return t('stats.currentSeason');
     }
-    return `Season ${name}`;
-  }, []);
+    return name;
+  }, [name, isCurrentSeason]);
 
   return (
     <>
       <ScreenView>
         <View style={styles.wrapper}>
           <PageHeader />
-          <View>
-            <View style={styles.seasonWrapper}>
-              <SecondaryButton onPress={openSheet} size="m" style={styles.seasonButton}>
-                <Text>{seasonButtonText}</Text>
-                <Pen color={colors.white} size="14" />
-              </SecondaryButton>
-            </View>
+          <View style={styles.innerWrapper}>
+            <TouchableWithoutFeedback onPress={openSheet}>
+              <Card style={styles.seasonWrapper}>
+                <View>
+                  <Text>{t('stats.chosenSeason')}</Text>
+                  <Text style={{fontSize: 22}}>{seasonButtonText}</Text>
+                </View>
+                <Pen color={colors.white} size="18" />
+              </Card>
+            </TouchableWithoutFeedback>
+
             <View style={styles.cardWrapper}>
               <Card style={styles.card}>
                 <Text style={styles.cardSubtitle}>{t('stats.kd')}</Text>
