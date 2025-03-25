@@ -26,13 +26,7 @@ export const BottomSheet = ({
       enablePanDownToClose={false}
       handleComponent={null}
       {...props}>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: 16,
-        }}>
+      <View style={styles.outerWrapper}>
         <Text style={styles.title}>{title}</Text>
         <SecondaryButton size="m" onPress={handleClose}>
           <Text style={styles.close}>Schließen</Text>

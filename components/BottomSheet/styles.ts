@@ -2,6 +2,12 @@ import { StyleSheet } from 'react-native';
 import { colors } from '~/theme';
 
 export const styles = StyleSheet.create({
+  outerWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 16,
+  },
   wrapper: {
     padding: 16,
   },
