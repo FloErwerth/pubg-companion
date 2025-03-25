@@ -1,6 +1,5 @@
 import {
   createContext,
-  PropsWithChildren,
   ReactElement,
   useCallback,
   useContext,
@@ -8,9 +7,9 @@ import {
   useRef,
   useState,
 } from 'react';
-import { FlatList, View } from 'react-native';
-import {Progress} from "~/components/Progress/Progress";
-import {ScreenView} from "~/components/ScreenView";
+import { FlatList } from 'react-native';
+import { Progress } from '~/components/Progress/Progress';
+import { ScreenView } from '~/components/ScreenView';
 
 type StepperProps = {
   pages: ReactElement[];
@@ -47,7 +46,7 @@ export const Stepper = ({ pages }: StepperProps) => {
   const previousPage = useCallback(() => {
     if (flatListRef.current) {
       const nextIndex = Math.max(currentIndex - 1, 0);
-      console.log(nextIndex)
+      console.log(nextIndex);
       setCurrentIndex(nextIndex);
       flatListRef.current.scrollToIndex({ index: nextIndex, animated: true });
     }

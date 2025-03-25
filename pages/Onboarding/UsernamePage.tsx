@@ -1,12 +1,11 @@
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { Image } from 'expo-image';
 import { styles } from '~/pages/Onboarding/styles';
 import { ActivityIndicator, View } from 'react-native';
 import { Text } from '~/components/Text';
 import { Input } from '~/components/Input';
 import { colors } from '~/theme';
 import { Button, PrimaryButton } from '~/components/Button';
-import { ArrowLeft, LockKeyholeIcon, Pencil } from 'lucide-react-native';
+import { LockKeyholeIcon, Pencil } from 'lucide-react-native';
 import { StepperPage } from '~/components/Stepper/StepperPage';
 import { Trans, useTranslation } from 'react-i18next';
 import { useState } from 'react';

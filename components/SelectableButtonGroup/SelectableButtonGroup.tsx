@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { SelectableButton } from '~/components/SelectableButtonGroup/SelectableButton';
 import { View } from 'react-native';
 import { styles } from '~/components/SelectableButtonGroup/styles';

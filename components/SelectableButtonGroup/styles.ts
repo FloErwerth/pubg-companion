@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import {colors} from "~/theme";
 
 export const styles = StyleSheet.create({
   wrapper: {
@@ -9,5 +8,5 @@ export const styles = StyleSheet.create({
   button: {
     flex: 1,
     justifyContent: 'center',
-  }
+  },
 });
