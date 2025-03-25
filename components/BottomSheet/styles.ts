@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
   background: {
-    backgroundColor: colors.grey5,
+    backgroundColor: colors.grey6,
+    opacity: 1,
   },
 });

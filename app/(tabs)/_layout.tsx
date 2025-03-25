@@ -3,6 +3,7 @@ import React from 'react';
 import { useIsRegisteredPlayer } from '~/store/player';
 import { CircleUserRound, LucideBarChart } from 'lucide-react-native';
 import { colors } from '~/theme';
+import { useSurvivalStatsQuery } from '~/api/stats';
 
 const screenOptions = {
   tabBarStyle: { borderTopLeftRadius: 6, borderTopRightRadius: 6 },
@@ -11,6 +12,7 @@ const screenOptions = {
 
 export default function TabsLayout() {
   const { isRegisteredPlayer } = useIsRegisteredPlayer();
+  useSurvivalStatsQuery();
 
   if (!isRegisteredPlayer) {
     return <Redirect href="/onboarding" />;

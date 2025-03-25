@@ -33,11 +33,13 @@ export const SettingsPage = () => {
           <Text style={styles.subtitle}>Region</Text>
           <SelectableButtonGroup
             onSelectOption={setRegion}
+            defaultValue={Region.EU}
             value={region}
             options={regionOptions}
           />
           <Text style={styles.subtitle}>Platform</Text>
           <SelectableButtonGroup
+            defaultValue={Platform.PC}
             onSelectOption={setPlatform}
             value={platform}
             options={platformOptions}

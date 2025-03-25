@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   wrapper: {
-    gap: 8,
+    gap: 24,
   },
   innerWrapper: {
     gap: 16,

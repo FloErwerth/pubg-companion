@@ -20,8 +20,7 @@ export const StatsPage = () => {
   const { openSheet, closeSheet, bottomSheetRef } = useBottomSheetControls();
 
   const {
-    kd,
-    avgDmg,
+    seasonStats: { kd, avgDmg },
     season: { name, isCurrentSeason },
   } = useStatsStore();
 

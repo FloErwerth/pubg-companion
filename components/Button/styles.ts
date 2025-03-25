@@ -19,7 +19,7 @@ export const primaryStyles = StyleSheet.create({
 export const secondaryStyles = StyleSheet.create({
   button: {
     ...styles.button,
-    backgroundColor: colors.primary,
+    backgroundColor: colors.grey5,
   },
 });
 

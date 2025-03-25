@@ -24,6 +24,7 @@ export const Button = ({ size = 'm', ...props }: ButtonProps) => {
 export const PrimaryButton = (props: ButtonProps) => {
   return <Button {...props} style={[props.style, primaryStyles.button]} />;
 };
+
 export const SecondaryButton = (props: ButtonProps) => {
   return <Button {...props} style={[props.style, secondaryStyles.button]} />;
 };
