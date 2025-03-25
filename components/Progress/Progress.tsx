@@ -28,10 +28,11 @@ export const Progress = ({ percent }: ProgressProps) => {
     const animationStyle = useAnimatedStyle(() => ({
         width: percentVal.value,
         backgroundColor: colors.foreground,
-        height: 18,
+        height: 8,
     }));
 
-    return <View style={{ height: 16,
+    return <View style={{
+        height: 8,
         overflow: "hidden",
         borderRadius: 1000,
         borderWidth: 1,

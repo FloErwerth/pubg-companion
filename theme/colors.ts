@@ -13,4 +13,5 @@ export const colors = {
   card: 'rgb(1, 3, 8)',
   destructive: 'rgb(254, 67, 54)',
   primary: 'rgb(0,0,0)',
+  success: 'rgb(30,204,0)',
 } as const;

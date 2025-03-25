@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 import { request } from '~/api/request';
-import { useAuthenticationStore } from '~/store/player';
+import { usePlayerStore } from '~/store/player';
 import { SEASONS_QUERY_KEY } from '~/api/seasons/constants';
 import { allSeasonsSchema } from '~/api/seasons/schema';
 import { seasonMapper } from '~/api/seasons/mapper';
@@ -8,7 +8,7 @@ import { seasonMapper } from '~/api/seasons/mapper';
 const seasonsURL = '/seasons';
 
 export const useAllSeasonsQuery = () => {
-  const { id } = useAuthenticationStore();
+  const { id } = usePlayerStore();
 
   return useQuery({
     enabled: !!id,

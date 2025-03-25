@@ -13,6 +13,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "declarations"
+    "declarations",
+    "expo-env.d.ts"
   ]
 }

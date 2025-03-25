@@ -1,11 +1,11 @@
 import { Text } from '~/components/Text';
 import { View } from 'react-native';
-import { useAuthenticationStore } from '~/store/player';
+import { usePlayerStore } from '~/store/player';
 import { styles } from '~/elements/PageHeader/styles';
 import { Avatar } from '~/components/Avatar';
 
 export const PageHeader = () => {
-  const { steamName } = useAuthenticationStore();
+  const { steamName } = usePlayerStore();
 
   return (
     <View style={styles.wrapper}>

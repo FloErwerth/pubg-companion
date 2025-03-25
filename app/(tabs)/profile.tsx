@@ -1,10 +1,10 @@
 import { ScreenView } from '~/components/ScreenView';
-import { useAuthenticationStore } from '~/store/player';
+import { usePlayerStore } from '~/store/player';
 import { Text } from '~/components/Text/Text';
 import {Button} from "~/components/Button";
 
 export default function Profile() {
-  const { id, setId } = useAuthenticationStore();
+  const { id, setId } = usePlayerStore();
   return (
     <ScreenView>
       <Text>Deine PUBG Account ID: {id}</Text>
