@@ -7,7 +7,13 @@
 		"settings": {
 			"title": "Willkommen bei deinem PUBG Companion!",
 			"explaination": "Damit wir deine Stats aufrufen können benötigen wir ein paar Informationen von Dir.",
-			"privacy": "Deine Informationen werden nur auf deinem Smartphone gespeichert und sind damit sicher."
+			"privacy": "Deine Informationen werden nur auf deinem Smartphone gespeichert und sind damit sicher.",
+			"region": "Region",
+			"platform": "Platform",
+			"perspective": "Bevorzugte Perspektive",
+			"gamemode": "Bevorzugter Spielmodus",
+			"perspectiveHint": "Die bevorzugte Perspektive wird nur dazu verwendet, um Dir in deiner Übersicht eine direkte Anzeige deiner bevorzugten Spielmodi anzeigen zu können. \n\nIn deiner Übersicht kannst Du Dir auch Stats für andere Perspektiven anzeigen lassen.",
+			"gameModeHint": "Der bevorzugte Spielmodus wird nur dazu verwendet, um Dir in deiner Übersicht eine direkte Anzeige deiner bevorzugten Spielmodi anzeigen zu können. \n\nIn deiner Übersicht kannst Du Dir auch Stats für andere Spielmodi anzeigen lassen."
 		},
 		"title": "Deinen Companion mit PUBG verbinden",
 		"explaination": "Als letztes benötigt der Companion noch den Usernamen, welchen Du in <strong>PUBG</strong> verwendest.",
