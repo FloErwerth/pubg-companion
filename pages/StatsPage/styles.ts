@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
   seasonWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    gap: 8,
   },
   seasonButton: {
     gap: 8,

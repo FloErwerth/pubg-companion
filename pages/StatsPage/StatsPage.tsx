@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
 import { playerApi } from '~/api/player';
+import { useAllSeasonsQuery, useSeasonStatsQuery } from '~/api/seasons';
 import { BottomSheet } from '~/components/BottomSheet/BottomSheet';
 import { useBottomSheetControls } from '~/components/BottomSheet/useBottomSheet';
 import { Button } from '~/components/Button';
@@ -18,6 +19,8 @@ import { colors } from '~/theme';
 export const StatsPage = () => {
   const { t } = useTranslation();
   const { openSheet, closeSheet, bottomSheetRef } = useBottomSheetControls();
+  const { data: seasons, isLoading: isLoadingSeasons } = useAllSeasonsQuery();
+  const { data: seasonStats, isLoading: isLoadingSeasonStats } = useSeasonStatsQuery();
 
   const {
     seasonStats: { kd, avgDmg },
@@ -37,14 +40,9 @@ export const StatsPage = () => {
         <View style={styles.wrapper}>
           <PageHeader />
           <View style={styles.innerWrapper}>
-            <Pressable onPress={openSheet}>
-              <Card style={styles.seasonWrapper}>
-                <View>
-                  <Text>{t('stats.chosenSeason')}</Text>
-                  <Text style={{ fontSize: 22 }}>{seasonButtonText}</Text>
-                </View>
-                <Pen color={colors.white} size="18" />
-              </Card>
+            <Pressable style={styles.seasonWrapper} onPress={openSheet}>
+              <Text style={{ fontSize: 16 }}>{seasonButtonText}</Text>
+              <Pen color={colors.white} size="18" />
             </Pressable>
 
             <View style={styles.cardWrapper}>
@@ -71,7 +69,11 @@ export const StatsPage = () => {
         </Button>
       </ScreenView>
       <BottomSheet title="Season ändern" enableDynamicSizing={false} reference={bottomSheetRef}>
-        <SeasonsSelectSheetContent onSelectSeason={closeSheet} />
+        <SeasonsSelectSheetContent
+          data={seasons}
+          isLoading={isLoadingSeasons}
+          onSelectSeason={closeSheet}
+        />
       </BottomSheet>
     </>
   );

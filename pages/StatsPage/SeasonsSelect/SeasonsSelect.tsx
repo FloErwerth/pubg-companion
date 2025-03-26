@@ -1,20 +1,23 @@
+import { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
-import { useAllSeasonsQuery } from '~/api/seasons';
 import { SelectableButtonGroup } from '~/components/SelectableButtonGroup/SelectableButtonGroup';
 import { Text } from '~/components/Text';
-import { useStatsStore } from '~/store/stats';
-import { BottomSheetScrollView } from '@gorhom/bottom-sheet';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Season, useStatsStore } from '~/store/stats';
 
 type SeasonsSelectSheetContentProps = {
   onSelectSeason: () => void;
+  data?: Season[];
+  isLoading: boolean;
 };
 
-export const SeasonsSelectSheetContent = ({ onSelectSeason }: SeasonsSelectSheetContentProps) => {
-  const { data, isLoading } = useAllSeasonsQuery();
+export const SeasonsSelectSheetContent = ({
+  onSelectSeason,
+  data,
+  isLoading,
+}: SeasonsSelectSheetContentProps) => {
   const { season, setSeason } = useStatsStore();
-  const { bottom } = useSafeAreaInsets();
+
   if (isLoading) {
     return <ActivityIndicator size="large" />;
   }

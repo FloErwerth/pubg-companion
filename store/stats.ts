@@ -2,7 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
-type Season = { id: string; name: string; isCurrentSeason: boolean };
+export type Season = { id: string; name: string; isCurrentSeason: boolean };
 
 type StatsStore = {
   season: Season;
@@ -31,21 +31,36 @@ export const useStatsStore = create<StatsStore>()(
       seasonStats: {
         kd: '2.85',
         setKd: (kd: string) =>
-          set((current) => ({ ...current, seasonStats: { ...current.seasonStats, kd } })),
+          set((current) => ({
+            ...current,
+            seasonStats: { ...current.seasonStats, kd },
+          })),
         avgDmg: '300',
         setAvgDmg: (avgDmg: string) =>
-          set((current) => ({ ...current, seasonStats: { ...current.seasonStats, avgDmg } })),
+          set((current) => ({
+            ...current,
+            seasonStats: { ...current.seasonStats, avgDmg },
+          })),
       },
       survivalStats: {
         tier: '',
         setTier: (tier: string) =>
-          set((current) => ({ ...current, survivalStats: { ...current.survivalStats, tier } })),
+          set((current) => ({
+            ...current,
+            survivalStats: { ...current.survivalStats, tier },
+          })),
         xp: '',
         setXP: (xp: string) =>
-          set((current) => ({ ...current, survivalStats: { ...current.survivalStats, xp } })),
+          set((current) => ({
+            ...current,
+            survivalStats: { ...current.survivalStats, xp },
+          })),
         level: '',
         setLevel: (level: string) =>
-          set((current) => ({ ...current, survivalStats: { ...current.survivalStats, level } })),
+          set((current) => ({
+            ...current,
+            survivalStats: { ...current.survivalStats, level },
+          })),
         totalMatchesPlayed: '',
         setTotalMatchesPlayed: (totalMatchesPlayed: string) =>
           set((current) => ({

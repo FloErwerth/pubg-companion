@@ -1,4 +1,4 @@
-import { request } from '~/api/request';
+import { useRequest } from '~/api/useRequest';
 import { z } from 'zod';
 
 const searchForPlayerSuccessSchema = z.object({
@@ -7,7 +7,8 @@ const searchForPlayerSuccessSchema = z.object({
 
 export const playerApi = {
   searchForPlayer: async (name: string, onSuccess: (id: string) => void, onError: () => void) => {
-    const response = await request(`/players?filter[playerNames]=${name}`);
+    const request = useRequest(`/players?filter[playerNames]=${name}`);
+    const response = await request();
     const json = await response.json();
     const player = searchForPlayerSuccessSchema.safeParse(json);
 

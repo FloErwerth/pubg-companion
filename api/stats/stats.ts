@@ -1,8 +1,8 @@
 import { useQuery } from 'react-query';
-import { request } from '~/api/request';
-import { usePlayerStore } from '~/store/player';
 import { LIFETIME_STATS_QUERY_KEY, SURVIVAL_MASTERY_QUERY_KEY } from '~/api/stats/constants';
 import { survivalSchema } from '~/api/stats/schemas/survivalSchema';
+import { useRequest } from '~/api/useRequest';
+import { usePlayerStore } from '~/store/player';
 import { useStatsStore } from '~/store/stats';
 
 const getLifetimeURL = (id: string): `/${string}` => `/players/${id}/seasons/lifetime`;
@@ -10,9 +10,10 @@ const getSurvivalMasteryURL = (id: string): `/${string}` => `/players/${id}/surv
 
 export const useLifetimeStatsQuery = () => {
   const { id } = usePlayerStore();
+  const request = useRequest(getLifetimeURL(id));
   return useQuery({
     queryFn: async () => {
-      const response = await request(getLifetimeURL(id));
+      const response = await request();
 
       if (response.ok) {
         return await response.json();
@@ -27,13 +28,14 @@ export const useSurvivalStatsQuery = () => {
   const {
     survivalStats: { setLevel, setTier, setXP, setTotalMatchesPlayed },
   } = useStatsStore();
+  const request = useRequest(getSurvivalMasteryURL(id));
+
   return useQuery({
     queryFn: async () => {
-      const response = await request(getSurvivalMasteryURL(id));
+      const response = await request();
 
       if (response.ok) {
         const json = await response.json();
-        console.log(json);
         const survivalStats = survivalSchema.parse(json);
         if (!survivalStats.data.attributes) {
           return;

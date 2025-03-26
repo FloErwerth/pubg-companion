@@ -1,7 +1,12 @@
 import { Stepper } from '~/components/Stepper/Stepper';
-import { UsernamePage } from '~/pages/Onboarding/UsernamePage';
 import { SettingsPage } from '~/pages/Onboarding/SettingsPage';
+import { UsernamePage } from '~/pages/Onboarding/UsernamePage';
 
 export const Onboarding = () => {
-  return <Stepper pages={[<SettingsPage />, <UsernamePage />]} />;
+  return (
+    <Stepper>
+      <SettingsPage />
+      <UsernamePage />
+    </Stepper>
+  );
 };

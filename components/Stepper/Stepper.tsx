@@ -12,7 +12,7 @@ import { Progress } from '~/components/Progress/Progress';
 import { ScreenView } from '~/components/ScreenView';
 
 type StepperProps = {
-  pages: ReactElement[];
+  children: ReactElement[];
 };
 
 type StepperContext = {
@@ -31,7 +31,7 @@ export const useStepperContext = () => {
   return context;
 };
 
-export const Stepper = ({ pages }: StepperProps) => {
+export const Stepper = ({ children }: StepperProps) => {
   const flatListRef = useRef<FlatList>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -62,11 +62,11 @@ export const Stepper = ({ pages }: StepperProps) => {
 
   return (
     <ScreenView>
-      <Progress percent={currentIndex + 1 / pages.length} />
+      <Progress percent={currentIndex + 1 / children.length} />
       <StepperContext.Provider value={contextValue}>
         <FlatList
           ref={flatListRef}
-          data={pages}
+          data={children}
           horizontal
           scrollEnabled={false}
           renderItem={({ item: Item }) => Item}
